@@ -1,5 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins';
+    font-size: 16px;
+    font-weight: 400;
+
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E5E5E5;
+}
+
+main {
+    border-radius: 40px;
+    background: linear-gradient(166deg, #FEFEFE 0%, #F9F9F9 12.84%, #F3F3F3 32.53%, #E5E5E5 100%);
+    width: 100%;
+    height: 100%;
+    max-width: 423px;
+    max-height: 858px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons-container {
+    margin-top: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    border-radius: 30px;
+    box-shadow: 0px -5px 70px 0px rgba(0, 0, 0, 0.10);
+    column-gap: 25px;
+    overflow: hidden;
+    position: relative;
+    row-gap: 20px;
+    z-index: 0;
+    padding: 26px 34px;
+}
+
+.buttons-container::before {
+    content: "";
+    backdrop-filter: blur(182px);
+    background: linear-gradient(244deg, #9EE8FF 8.14%, #5ACEFF 27.9%, #79AFFF 56.94%, #2D5FDE 84.11%) rgba(230, 246, 255, 0.20);
+    background-blend-mode: overlay;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 0.5;
+    z-index: -1;
+}
+
+.btn-group {
+    background-color: #FFFFFF4D;
+    box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.05);
+    display: flex;
+    border-radius: 40px;
+    justify-content: space-between;
+}
+
+.btn-group.btn-group-vertical {
+    flex-direction: row;
+    grid-area: 1 / 1 / 1 / 4;
+    column-gap: 25px;
+}
+
+.btn-group.btn-group-horizontal {
+    flex-direction: column;
+    grid-area: 1 / 4 / span 5 / 4;
+    row-gap: 20px;
+}
+
+.btn {
+    display: block;
+    background-color: transparent;
+    border-radius: 50%;
+    border: none;
+    color: #373737;
+    cursor: pointer;
+    font-size: 26px;
+    font-weight: 600;
+    height: 70px;
+    width: 100%;
+    max-width: 70px;
+}
+
+.btn.btn-solid {
+    background-color: #FFFFFF4D;
+    box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.05);
+}
+
+.btn#btn-equal {
+    background-color: #FFFFFF33;
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.05);
 }

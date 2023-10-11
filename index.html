@@ -1,13 +1,46 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<link rel="icon" type="image/svg+xml" href="/vite.svg" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Calculator</title>
-	</head>
-	<body>
-		<div id="app"></div>
-		<script type="module" src="/src/main.js"></script>
-	</body>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Calculator</title>
+    </head>
+    <body>
+        <main>
+            <section class="buttons-container">
+                <!-- Options -->
+                <div class="btn-group btn-group-vertical">
+                    <button type="button" class="btn" id="btn-reset">AC</button>
+                    <button type="button" class="btn" id="btn-invert">+/-</button>
+                    <button type="button" class="btn" id="btn-porcentage">%</button>
+                </div>
+    
+                <!-- Numbers -->
+                <button type="button" class="btn btn-solid">1</button>
+                <button type="button" class="btn btn-solid">2</button>
+                <button type="button" class="btn btn-solid">3</button>
+                <button type="button" class="btn btn-solid">4</button>
+                <button type="button" class="btn btn-solid">5</button>
+                <button type="button" class="btn btn-solid">6</button>
+                <button type="button" class="btn btn-solid">7</button>
+                <button type="button" class="btn btn-solid">8</button>
+                <button type="button" class="btn btn-solid">9</button>
+                <button type="button" class="btn btn-solid">.</button>
+                <button type="button" class="btn btn-solid">0</button>
+                <button type="button" class="btn btn-solid">00</button>
+    
+                <!-- Methods -->
+                <div class="btn-group btn-group-horizontal">
+                    <button type="button" class="btn" id="btn-divide">÷</button>
+                    <button type="button" class="btn" id="btn-multiply">x</button>
+                    <button type="button" class="btn" id="btn-substract">-</button>
+                    <button type="button" class="btn" id="btn-plus">+</button>
+                    <button type="button" class="btn" id="btn-equal">=</button>
+                </div>
+            </section>
+        </main>
+
+        <script type="module" src="/src/main.js"></script>
+    </body>
 </html>
