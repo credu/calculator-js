@@ -18,9 +18,35 @@ body {
     background-color: #E5E5E5;
 }
 
+:root {
+    --text-primary: #373737;
+    --text-primary-transparent: #37373780;
+    --gradient-background: linear-gradient(166deg, #FEFEFE 0%, #F9F9F9 12.84%, #F3F3F3 32.53%, #E5E5E5 100%);
+    --gradient-background-buttons: linear-gradient(244deg, #9EE8FF 8.14%, #5ACEFF 27.9%, #79AFFF 56.94%, #2D5FDE 84.11%) rgba(230, 246, 255, 0.20);
+    --background-button: #FFFFFF4D;
+    --background-button-special: #FFFFFF33;
+    --darkmode-container-background: #A9DCFD;
+    --darkmode-selector-background: #D8EEFF;
+    --sun-icon: #373737;
+    --moon-icon: #37373766;
+}
+
+:root[data-theme="dark"] {
+    --text-primary: #FBFBFB;
+    --text-primary-transparent: #FBFBFB80;
+    --gradient-background: linear-gradient(166deg, #373737 0%, #252628 22.9%, #000309 100%);;
+    --gradient-background-buttons: linear-gradient(244deg, #42869B 8.14%, #2A7DA1 27.9%, #224E91 56.94%, #00123F 84.11%);
+    --background-button: #0505054D;
+    --background-button-special: #05050533;
+    --darkmode-container-background: #1B6A9C;
+    --darkmode-selector-background: #003661;
+    --sun-icon: #FBFBFB66;
+    --moon-icon: #FBFBFBCC;
+}
+
 main {
     border-radius: 40px;
-    background: linear-gradient(166deg, #FEFEFE 0%, #F9F9F9 12.84%, #F3F3F3 32.53%, #E5E5E5 100%);
+    background: var(--gradient-background);
     width: 100%;
     height: 100%;
     max-width: 423px;
@@ -30,8 +56,98 @@ main {
     flex-direction: column;
 }
 
+.taskbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    padding-top: 52px;
+    margin-bottom: auto;
+}
+
+#darkmode-selector {
+    background-color: var(--darkmode-container-background);
+    border-radius: 40px;
+    width: 100%;
+    max-width: 120px;
+    padding: 7px 15px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    cursor: pointer;
+}
+
+#darkmode-selector::before {
+    content: "";
+    position: absolute;
+    border-radius: 40px;
+    max-width: 68px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--darkmode-selector-background);
+    z-index: 0;
+    transition: all .3s ease-out;
+}
+
+[data-theme="dark"] #darkmode-selector::before {
+    left: calc(100% - 67px);
+    /* transition: all .3s ease-in; */
+}
+
+.bx-sun {
+    z-index: 1;
+    fill: var(--sun-icon);
+}
+
+.bx-moon {
+    z-index: 1;
+    fill: var(--moon-icon);
+}
+
+#btn-history {
+    position: absolute;
+    right: 34px;
+    border: none;
+    fill: var(--text-primary);
+    fill-opacity: 0.8;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+[data-theme="dark"] #btn-history {
+    fill-opacity: 1;
+}
+
+.result-container {
+    margin: 30px 0;
+    padding: 0 34px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    color: var(--text-primary);
+}
+
+.bx-equal {
+    display: block;
+    font-size: 26px;
+    font-weight: 600;
+}
+
+#result {
+    display: block;
+    width: 100%;
+    text-align: right;
+    font-size: 40px;
+    font-weight: 600;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+}
+
 .buttons-container {
-    margin-top: auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
@@ -47,8 +163,9 @@ main {
 
 .buttons-container::before {
     content: "";
+    -webkit-backdrop-filter: blur(182px);
     backdrop-filter: blur(182px);
-    background: linear-gradient(244deg, #9EE8FF 8.14%, #5ACEFF 27.9%, #79AFFF 56.94%, #2D5FDE 84.11%) rgba(230, 246, 255, 0.20);
+    background: var(--gradient-background-buttons);
     background-blend-mode: overlay;
     position: absolute;
     top: 0;
@@ -60,7 +177,7 @@ main {
 }
 
 .btn-group {
-    background-color: #FFFFFF4D;
+    background-color: var(--background-button);
     box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.05);
     display: flex;
     border-radius: 40px;
@@ -84,7 +201,7 @@ main {
     background-color: transparent;
     border-radius: 50%;
     border: none;
-    color: #373737;
+    color: var(--text-primary);
     cursor: pointer;
     font-size: 26px;
     font-weight: 600;
@@ -94,11 +211,11 @@ main {
 }
 
 .btn.btn-solid {
-    background-color: #FFFFFF4D;
+    background-color: var(--background-button);
     box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.05);
 }
 
 .btn#btn-equal {
-    background-color: #FFFFFF33;
+    background-color: var(--background-button-special);
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.05);
 }
