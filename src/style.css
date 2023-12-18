@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 * {
     margin: 0;
@@ -119,6 +119,23 @@ main {
 
 [data-theme="dark"] #btn-history {
     fill-opacity: 1;
+}
+
+.history-container {
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 0 34px;
+    overflow-y: auto;
+    scroll-snap-type: x mandatory;
+    max-height: calc(33px * 4);
+}
+
+.history-container > span {
+    display: block;
+    color: var(--text-primary-transparent);
+    text-align: end;
+    font-size: 22px;
+    font-weight: 500;
 }
 
 .result-container {
