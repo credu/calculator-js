@@ -67,6 +67,8 @@ main {
 }
 
 #darkmode-selector {
+    display: block;
+    border: none;
     background-color: var(--darkmode-container-background);
     border-radius: 40px;
     width: 100%;
@@ -122,7 +124,8 @@ main {
 }
 
 .history-container {
-    display: flex;
+    /* display: flex; */
+    display: none;
     flex-direction: column-reverse;
     padding: 0 34px;
     overflow-y: auto;
@@ -132,6 +135,20 @@ main {
 
 .history-container > span {
     display: block;
+    color: var(--text-primary-transparent);
+    text-align: end;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.operation-container {
+    display: block;
+    padding: 0 34px;
+}
+
+.operation-container > span {
+    display: flex;
+    flex-direction: column-reverse;
     color: var(--text-primary-transparent);
     text-align: end;
     font-size: 22px;
@@ -154,7 +171,8 @@ main {
 }
 
 #result {
-    display: block;
+    display: flex;
+    flex-direction: row-reverse;
     width: 100%;
     text-align: right;
     font-size: 40px;
@@ -232,7 +250,7 @@ main {
     box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.05);
 }
 
-.btn#btn-equal {
+.btn#btn-result {
     background-color: var(--background-button-special);
     box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.05);
 }
